@@ -1,4 +1,8 @@
 Hooverdam::Application.routes.draw do
+  root :to => "home#index"
+  get "locations/index"
+  get "locations/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

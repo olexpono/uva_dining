@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nutrition_url: MyString
+  name: MyString
+  type: MyString
+
+two:
+  nutrition_url: MyString
+  name: MyString
+  type: MyString
