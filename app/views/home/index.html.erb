@@ -1,2 +1,3 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Root page for UVA Dining Webservices</h1>
+<p>You can pool for all locations and their status at <%= link_to "/locations(.xml,.json)", "/locations" %></p>
+<p>You can check a specific location at <%= link_to "/locations/(ohill,newcomb,runk)", "locations/ohill.xml"%>
