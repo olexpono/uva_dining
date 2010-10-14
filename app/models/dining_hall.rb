@@ -177,6 +177,7 @@ class DiningHall < ActiveRecord::Base
     #puts "Start: " + start_time
     #puts "End: " + end_time
     #puts "Now: " + (@now-21600)
+    @now ||= Time.now.gmtime - 14400
     if (@now) > start_time && (@now) < end_time
       true 
     else
