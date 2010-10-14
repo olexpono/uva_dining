@@ -18,27 +18,29 @@ class DiningHall < ActiveRecord::Base
   end
 
   def is_open
-    @now = Time.now
+    est_offset = -14400
+    @now = Time.now.gmtime + est_offset
+    # @now is the current EST time (hour, min, sec), signed as UTC
     
     @year   = @now.year
     @month  = @now.month
     @day    = @now.day
     
     #Times that are valid accross all dining halls
-    dinner_start      = Time.local(@year,@month,@day,17,00,0)
-    dinner_end        = Time.local(@year,@month,@day,20,00,0)
-    brunch_start      = Time.local(@year,@month,@day,10,00,0)
-    brunch_end        = Time.local(@year,@month,@day,14,00,0)
-    afterhrs_start    = Time.local(@year,@month,@day,20,30,0)
-    afterhrs_end      = Time.local(@year,@month,@day,22,00,0)
+    dinner_start      = Time.gm(@year,@month,@day,17,00,0)
+    dinner_end        = Time.gm(@year,@month,@day,20,00,0)
+    brunch_start      = Time.gm(@year,@month,@day,10,00,0)
+    brunch_end        = Time.gm(@year,@month,@day,14,00,0)
+    afterhrs_start    = Time.gm(@year,@month,@day,20,30,0)
+    afterhrs_end      = Time.gm(@year,@month,@day,22,00,0)
     
     if name == 'Newcomb'
-      breakfast_start   = Time.local(@year,@month,@day,7,00,0)
-      breakfast_end     = Time.local(@year,@month,@day,10,15,0)
-      lunch_start       = Time.local(@year,@month,@day,10,45,0)
-      lunch_end         = Time.local(@year,@month,@day,14,15,0)
-      ssd_start         = Time.local(@year,@month,@day,14,15,0)
-      ssd_end           = Time.local(@year,@month,@day,16,00,0)
+      breakfast_start   = Time.gm(@year,@month,@day,7,00,0)
+      breakfast_end     = Time.gm(@year,@month,@day,10,15,0)
+      lunch_start       = Time.gm(@year,@month,@day,10,45,0)
+      lunch_end         = Time.gm(@year,@month,@day,14,15,0)
+      ssd_start         = Time.gm(@year,@month,@day,14,15,0)
+      ssd_end           = Time.gm(@year,@month,@day,16,00,0)
       #Monday - Thursday
       if @now.wday >=1 && @now.wday <=4
         #Check breakfast, lunch, ssd, dinner
@@ -83,14 +85,14 @@ class DiningHall < ActiveRecord::Base
         end
       end   
     elsif name == 'Ohill'
-      breakfast_start   = Time.local(@year,@month,@day,7,00,0)
-      breakfast_end     = Time.local(@year,@month,@day,10,15,0)
-      salad_start       = Time.local(@year,@month,@day,10,15,0)
-      salad_end         = Time.local(@year,@month,@day,10,40,0)
-      lunch_start       = Time.local(@year,@month,@day,10,45,0)
-      lunch_end         = Time.local(@year,@month,@day,14,15,0)
-      ssd_start         = Time.local(@year,@month,@day,14,15,0)
-      ssd_end           = Time.local(@year,@month,@day,16,00,0)
+      breakfast_start   = Time.gm(@year,@month,@day,7,00,0)
+      breakfast_end     = Time.gm(@year,@month,@day,10,15,0)
+      salad_start       = Time.gm(@year,@month,@day,10,15,0)
+      salad_end         = Time.gm(@year,@month,@day,10,40,0)
+      lunch_start       = Time.gm(@year,@month,@day,10,45,0)
+      lunch_end         = Time.gm(@year,@month,@day,14,15,0)
+      ssd_start         = Time.gm(@year,@month,@day,14,15,0)
+      ssd_end           = Time.gm(@year,@month,@day,16,00,0)
       #Monday - Friday
       if @now.wday >=1 && @now.wday <=5
         #Check breakfast, salad bar, lunch, ssd, dinner
@@ -121,12 +123,12 @@ class DiningHall < ActiveRecord::Base
         end        
       end
     elsif name == 'Runk'
-      breakfast_start   = Time.local(@year,@month,@day,7,00,0)
-      breakfast_end     = Time.local(@year,@month,@day,10,30,0)
-      lunch_start       = Time.local(@year,@month,@day,11,00,0)
-      lunch_end         = Time.local(@year,@month,@day,14,00,0)
-      ssd_start         = Time.local(@year,@month,@day,14,00,0)
-      ssd_end           = Time.local(@year,@month,@day,16,00,0)
+      breakfast_start   = Time.gm(@year,@month,@day,7,00,0)
+      breakfast_end     = Time.gm(@year,@month,@day,10,30,0)
+      lunch_start       = Time.gm(@year,@month,@day,11,00,0)
+      lunch_end         = Time.gm(@year,@month,@day,14,00,0)
+      ssd_start         = Time.gm(@year,@month,@day,14,00,0)
+      ssd_end           = Time.gm(@year,@month,@day,16,00,0)
       #Monday - Thursday
       if @now.wday >=1 && @now.wday <=4
         #Check breakfast, lunch, ssd, dinner, afterhours
