@@ -2,17 +2,19 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 <xs:element name="dining-halls">
-  <xs:sequence>
-    <xs:element name="dining-hall">
-      <xs:complexType>
-        <xs:sequence>
-          <xs:element name="name" type="xs:string"/>
-          <xs:element name="open" type="xs:boolean"/>
-          <xs:element name="meal" type="xs:string"/>
-        </xs:sequence>
-      </xs:complexType>
-    </xs:element>
-  </xs:sequence>
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="dining-hall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="open" type="xs:boolean"/>
+            <xs:element name="meal" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:element>
 
 </xs:schema>
