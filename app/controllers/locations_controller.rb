@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @dininghall = DiningHall.find_by_name(params[:name])
+    @dininghall = DiningHall.find_by_name!(params[:name])
     @dininghall.update_status
     respond_to do |format|
       format.html
