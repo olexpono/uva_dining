@@ -1,10 +1,19 @@
 class DiningHall < ActiveRecord::Base
   has_many :mealtimes
   
+  def to_xml(options = {})
+    super(options.merge(:except => [:id, :updated_at, :created_at]))
+  end
+  
+  def to_json(options = {})
+    super(options.merge(:except => [:id, :updated_at, :created_at]))
+  end
+  
   def update_status
     is_open_result = is_open
-    open = is_open_result ? true : false
-    meal = is_open_result ? is_open_result.titleize : "Closed"
+    self[:open] = is_open_result ? true : false
+    self[:meal] = is_open_result ? is_open_result.titleize : "Closed"
+    puts "updating "+name.to_s+" with: " + self[:meal] + " | "+is_open_result.to_s
     save
   end
 

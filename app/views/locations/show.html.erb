@@ -1,2 +1,6 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1><%= @dininghall.name %></h1>
+<% if @dininghall.open? %>
+  <p><%= @dininghall.name %> is currently open for <%= @dininghall.meal %></p>
+<% else %>
+  <p><%= @dininghall.name %> is closed right now</p>
+<% end %>

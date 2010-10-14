@@ -1,16 +1,22 @@
 class LocationsController < ApplicationController
   def index
-    #assigns @locations, renders JSON or XML
+    DiningHall.all.each(&:update_status)
     @dininghalls = DiningHall.all
-    @dininghalls.each(&:update)
     respond_to do |format|
       format.html
       format.xml { render :xml => @dininghalls }
+      format.json { render :json => @dininghalls }
     end
   end
 
   def show
-    #assigns @location, @menu_items, etc, renders JSON or XML
+    @dininghall = DiningHall.find_by_name(params[:name])
+    @dininghall.update_status
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @dininghall }
+      format.json { render :json => @dininghall }
+    end
   end
 
 end
