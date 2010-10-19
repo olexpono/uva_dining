@@ -5,7 +5,8 @@ This is a simple webservice created which we'll use in a mobile app for a class.
 
 Currently implemented:
 
-h1. /locations(.format)
+/locations(.format)
+
 Returns a list of locations (Runk, Newcomb, OHill), whether they are open, and what they are open for (lunch, dinner, etc).
 
 JSON Example output:
@@ -13,12 +14,12 @@ JSON Example output:
 {"dining_hall":{"name":"Newcomb","open":true,"meal":"Lunch"}},
 {"dining_hall":{"name":"Ohill","open":true,"meal":"Lunch"}}]
 
-h1. /locations/*name*(.format)
+/locations/*name*(.format)
 
 JSON Example, /locations/ohill:
 [{"dining_hall":{"name":"Ohill","open":true,"meal":"Lunch"}}]
 
-h1. Planned Features
+Planned Features
 
 We are going to provide a full menu with each location call, as well as links to nutrition facts of the foods.
 
