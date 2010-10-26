@@ -4,8 +4,10 @@ Hooverdam::Application.routes.draw do
   root :to => "home#index"
   match "locations" => "locations#index"
   match "locations/:name" => "locations#show"
+  get "locations/:name/:action", :controller => "locations"
   match "meals/:id" => "meals#show"
-
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
