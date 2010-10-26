@@ -5,7 +5,7 @@ class MealTime < ActiveRecord::Base
   has_many :menu_items
   include Constants
   
-  scope :todays, lambda { where(['start > ?', Date.today.gmtime + EST_OFFSET]) }
+  scope :todays, lambda { where(['start > ?', Date.today]) }
   scope :breakfast, lambda { where(['start = ?', BREAKFAST_START ])}
   scope :brunch, lambda { where(['start = ?', BRUNCH_START ])}
   scope :dinner, lambda { where(['start = ?', DINNER_START ])}
