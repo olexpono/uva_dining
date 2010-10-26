@@ -1,4 +1,4 @@
 class MenuItem < ActiveRecord::Base
-  has_one :fooditem
-  belongs_to :mealtime
+  belongs_to :food_item
+  belongs_to :meal_time
 end

@@ -10,6 +10,9 @@ gem 'mysql2'
 # Use unicorn as the web server
 gem 'unicorn'
 
+# Scraping and stuff
+gem 'hpricot'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

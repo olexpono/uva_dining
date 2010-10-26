@@ -1,0 +1,8 @@
+<h1><%= @meal ? "#{@meal.meal} at #{@dining_hall_name}" : "Meal Not Found" %></h1>
+<% if @meal %>
+  <ul class="menu_items">
+  <% @menu_items.each do |mi| %>
+    <li><%= mi.food_item.name %> -- <%= link_to "Nutrition Info", mi.food_item.nutrition_url %></li>
+  <% end %>
+  </ul>
+<% end%>
