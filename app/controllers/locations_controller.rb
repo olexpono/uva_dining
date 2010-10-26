@@ -27,9 +27,11 @@ class LocationsController < ApplicationController
   end
   def dinner
     @meal = @dininghall.meal_times.dinner.last
+    render_meal
   end
   def breakfast
     @meal = @dininghall.meal_times.breakfast.last
+    render_meal
   end
   
   private
