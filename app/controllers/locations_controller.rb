@@ -46,7 +46,7 @@ class LocationsController < ApplicationController
                                                 :nutrition_url => mi.food_item.nutrition_url}}
     end
     respond_to do |format|
-      format.html
+      format.html { render "meals/show" }
       format.xml { render :xml => {:meal => @meal.attributes, :menu_items => @nice_menu_items} }
       format.json { render :json => {:meal => @meal.attributes, :menu_items => @nice_menu_items} }
     end
