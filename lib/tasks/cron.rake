@@ -2,7 +2,7 @@ require 'constants'
 require 'open-uri'
 include Constants
 desc "Scrapes UVA Dining site to update current date's meals"
-task :scrape_data => :environment do
+task :cron => :environment do
   meal_time = { :breakfast => "1", :lunch => "16", :dinner => "17", :brunch => "92"}
   meal_time_hours = {:breakfast => [BREAKFAST_START, BREAKFAST_END],
                      :brunch => [BRUNCH_START, BRUNCH_END],
