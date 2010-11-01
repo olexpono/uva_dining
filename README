@@ -19,6 +19,10 @@ JSON Example output:
 JSON Example, /locations/ohill:
 [{"dining_hall":{"name":"Ohill","open":true,"meal":"Lunch"}}]
 
+/locations/*name*/*meal_name*(.format)
+
+Returns a full menu of items for that meal, currently only for breakfast, lunch, dinner. This also provides links to nutrition facts for each item.
+
 Planned Features
 
 We are going to provide a full menu with each location call, as well as links to nutrition facts of the foods.
